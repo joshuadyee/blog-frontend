@@ -9,3 +9,16 @@
 html {
   scroll-behavior: smooth;
 }
+
+header {
+  text-align: left;
+  text-decoration: none;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+button {
+  border-radius: 4px;
+  background-color: bisque;
+  border: ;
+}
