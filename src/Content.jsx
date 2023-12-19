@@ -15,14 +15,24 @@ export function Content() {
     })
   }
 
+  const [isPostsShowVisible, setIsPostsShowVisible] = useState(false)
+
+  const handleShowPosts = () => {
+    setIsPostsShowVisible(true)
+  } 
+
+  const handleClose = () => {
+    setIsPostsShowVisible(false)
+  }
+
   useEffect(handleIndexPosts, [])
 
   return (
     <div>
       <PostsNew />
-      <PostsIndex posts={posts} />
+      <PostsIndex posts={posts} onShowPosts={handleShowPosts}/>
       {/* <button onClick={handleIndexPosts}>All Posts Here</button> */}
-      <Modal show={false}>
+      <Modal show={isPostsShowVisible} onClose={handleClose}>
         <p>TEST</p>
       </Modal>
     </div>
