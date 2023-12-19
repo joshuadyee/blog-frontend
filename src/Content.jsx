@@ -2,6 +2,7 @@ import { PostsIndex } from './PostsIndex'
 import { PostsNew } from './PostsNew'
 import axios from "axios"
 import { useState, useEffect } from 'react'
+import { Modal } from './Modal'
 
 
 export function Content() {
@@ -21,6 +22,9 @@ export function Content() {
       <PostsNew />
       <PostsIndex posts={posts} />
       {/* <button onClick={handleIndexPosts}>All Posts Here</button> */}
+      <Modal show={false}>
+        <p>TEST</p>
+      </Modal>
     </div>
   );
 }
