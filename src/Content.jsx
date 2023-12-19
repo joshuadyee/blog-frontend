@@ -1,8 +1,9 @@
 import { PostsIndex } from './PostsIndex'
 import { PostsNew } from './PostsNew'
+import { PostsShow } from './PostsShow'
+import { Modal } from './Modal'
 import axios from "axios"
 import { useState, useEffect } from 'react'
-import { Modal } from './Modal'
 
 
 export function Content() {
@@ -36,19 +37,7 @@ export function Content() {
       <PostsIndex posts={posts} onShowPosts={handleShowPosts}/>
       {/* <button onClick={handleIndexPosts}>All Posts Here</button> */}
       <Modal show={isPostsShowVisible} onClose={handleClose}>
-        {/* <p>TEST</p> */}
-        <div>
-          <b>Title</b>
-            <p>
-              {currentPost.title}
-            </p>
-        </div>
-        <div>
-          <b>Info</b>
-            <p>
-              {currentPost.body}
-          </p>
-        </div>
+        <PostsShow post={currentPost} />
       </Modal>
     </div>
   );
