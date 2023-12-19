@@ -10,20 +10,23 @@ export function Content() {
 
   const handleIndexPosts = () => {
     axios.get("http://localhost:3000/posts.json").then(response => {
-      console.log(response.data)
       setPosts(response.data)
     })
   }
 
   const [isPostsShowVisible, setIsPostsShowVisible] = useState(false)
 
-  const handleShowPosts = () => {
+  const [currentPost, setCurrentPost] = useState({})
+
+  const handleShowPosts = (post) => {
     setIsPostsShowVisible(true)
+    setCurrentPost(post)
   } 
 
   const handleClose = () => {
     setIsPostsShowVisible(false)
   }
+
 
   useEffect(handleIndexPosts, [])
 
@@ -33,7 +36,19 @@ export function Content() {
       <PostsIndex posts={posts} onShowPosts={handleShowPosts}/>
       {/* <button onClick={handleIndexPosts}>All Posts Here</button> */}
       <Modal show={isPostsShowVisible} onClose={handleClose}>
-        <p>TEST</p>
+        {/* <p>TEST</p> */}
+        <div>
+          <b>Title</b>
+            <p>
+              {currentPost.title}
+            </p>
+        </div>
+        <div>
+          <b>Info</b>
+            <p>
+              {currentPost.body}
+          </p>
+        </div>
       </Modal>
     </div>
   );
