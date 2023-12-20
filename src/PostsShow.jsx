@@ -5,9 +5,7 @@ export function PostsShow(props) {
   const updatePost = event => {
     event.preventDefault()
     const params = new FormData(event.target)
-    axios.patch(`http://localhost:3000/posts/${props.post.id}.json`).then(response => {
-      console.log(response.data)
-    })
+    props.onUpdatePost(props.post.id, params)
   }
   
   return (
