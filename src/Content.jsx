@@ -9,15 +9,15 @@ import { useState, useEffect } from 'react'
 export function Content() {
   const [posts, setPosts] = useState([])
 
+  const [isPostsShowVisible, setIsPostsShowVisible] = useState(false)
+
+  const [currentPost, setCurrentPost] = useState({})
+
   const handleIndexPosts = () => {
     axios.get("http://localhost:3000/posts.json").then(response => {
       setPosts(response.data)
     })
   }
-
-  const [isPostsShowVisible, setIsPostsShowVisible] = useState(false)
-
-  const [currentPost, setCurrentPost] = useState({})
 
   const handleShowPosts = (post) => {
     setIsPostsShowVisible(true)
@@ -28,12 +28,17 @@ export function Content() {
     setIsPostsShowVisible(false)
   }
 
+  const handleCreatePost = (params) => {
+    axios.post("http://localhost:3000/posts.json", params).then(response => {
+      setPosts([...posts, response.data])
+    })
+  }
 
   useEffect(handleIndexPosts, [])
 
   return (
     <div>
-      <PostsNew />
+      <PostsNew onCreatePost={handleCreatePost}/>
       <PostsIndex posts={posts} onShowPosts={handleShowPosts}/>
       {/* <button onClick={handleIndexPosts}>All Posts Here</button> */}
       <Modal show={isPostsShowVisible} onClose={handleClose}>
