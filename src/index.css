@@ -1,4 +1,4 @@
-#posts-index img {
+/* #posts-index img {
   width: 400px;
   max-height: 400px;
 }
@@ -22,4 +22,14 @@ button {
   border-radius: 4px;
   background-color: bisque;
   border: 1px;
+  padding: .5px;
+} */
+
+#root {
+  font-family: Book Antiqua, Palatino, Palatino Linotype, Palatino LT STD, Georgia, serif;
+  background-image: url("./src/assets/the-inspiration-gallery-2.jpg");
+}
+
+.card-title {
+  font-weight: bold;
 }

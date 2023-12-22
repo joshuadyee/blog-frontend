@@ -54,6 +54,7 @@ export function Content() {
 
   return (
     <div>
+    <div className="container-fluid" />
       <PostsNew onCreatePost={handleCreatePost}/>
       <PostsIndex posts={posts} onShowPosts={handleShowPosts}/>
       {/* <button onClick={handleIndexPosts}>All Posts Here</button> */}
