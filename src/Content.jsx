@@ -2,6 +2,7 @@ import { PostsIndex } from './PostsIndex'
 import { PostsNew } from './PostsNew'
 import { PostsShow } from './PostsShow'
 import { Modal } from './Modal'
+import { Signup } from './Signup'
 import axios from "axios"
 import { useState, useEffect } from 'react'
 
@@ -55,6 +56,7 @@ export function Content() {
   return (
     <div>
     <div className="container-fluid" />
+      <Signup />
       <PostsNew onCreatePost={handleCreatePost}/>
       <PostsIndex posts={posts} onShowPosts={handleShowPosts}/>
       {/* <button onClick={handleIndexPosts}>All Posts Here</button> */}
