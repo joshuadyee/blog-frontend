@@ -3,8 +3,10 @@ import { PostsNew } from './PostsNew'
 import { PostsShow } from './PostsShow'
 import { Modal } from './Modal'
 import { Signup } from './Signup'
+import { Login } from './Login'
 import axios from "axios"
 import { useState, useEffect } from 'react'
+import { LogoutLink } from './LogoutLink'
 
 
 export function Content() {
@@ -57,6 +59,8 @@ export function Content() {
     <div>
     <div className="container-fluid" />
       <Signup />
+      <Login />
+      <LogoutLink />
       <PostsNew onCreatePost={handleCreatePost}/>
       <PostsIndex posts={posts} onShowPosts={handleShowPosts}/>
       {/* <button onClick={handleIndexPosts}>All Posts Here</button> */}
